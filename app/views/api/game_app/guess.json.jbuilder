@@ -1,3 +1,3 @@
-json.game "Guess the number game, guess 1-100"
+json.game @message
 json.guess @guess
 json.win @win

@@ -14,15 +14,20 @@ class Api::GameAppController < ApplicationController
     render 'page.json.jbuilder'
   end
 
+@@answer = Array(1..10)
+@@range = @@answer[rand(10)]
   def guess
+    @message = "Guess a number #{@@answer.first} - #{@@answer.last}"
     if
       @guess = params[:guess]
       guess = @guess.to_i
-      if guess == 36
+      if guess < @@answer.first || guess > @@answer.last
+        @message = "Please guess a number in the range of #{@@answer.first} - #{@@answer.last}"
+      elsif guess == @@range
         @win = "You win!"
-      elsif guess > 36
+      elsif guess > @@range
         @win = "guess lower"
-      elsif guess < 36
+      elsif guess < @@range
         @win = "guess higher"
       end
     end
