@@ -14,8 +14,8 @@ class Api::GameAppController < ApplicationController
     render 'page.json.jbuilder'
   end
 
-@@answer = Array(1..10)
-@@range = @@answer[rand(10)]
+@@answer = Array(1..100)
+@@range = @@answer[rand(100)]
   def guess
     @message = "Guess a number #{@@answer.first} - #{@@answer.last}"
     if
